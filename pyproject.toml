@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "delamain"
+version = "0.0.0"
+description = "Look up IP Addresses for Hosts and set them as NextDNS Rewrites"
+authors = ["Chris Pressland <mail@cpressland.io>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+delamain = "delamain:run"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.31.0"
+pydantic-settings = "^2.1.0"
+loguru = "^0.7.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+ruff = "^0.1.11"
+mypy = "^1.8.0"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
+
+[tool.ruff]
+select = ["ALL"]
+line-length = 120
+ignore = ["FA102", "D203", "D213"]
+
+[tool.black]
+line-length = 120
